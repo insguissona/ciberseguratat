@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>Secure Network Access</title>
+<style>
+  body {
+    margin: 0;
+    background: black;
+    color: #00ff66;
+    font-family: "Courier New", monospace;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .terminal {
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-line;
+  }
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    background: #00ff66;
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+  .warning {
+    color: #ff4444;
+    font-weight: bold;
+  }
+  .success {
+    color: #00ffaa;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="terminal" id="terminal"></div>
+
+<script>
+const lines = [
+  "Inicialitzant mòdul de xarxa...",
+  "Detectant interfícies actives...",
+  "WiFi detectada: GEN_CAT_TEST",
+  "Intensitat del senyal: ████████░░ 82%",
+  "",
+  "Establint connexió segura...",
+  "Handshake completat.",
+  "",
+  "Recuperant informació del sistema...",
+  "Usuari identificat: T.L. (1995)",
+  "Entorn: Institut Demo Virtual",
+  "",
+  "Accedint a paquets de dades...",
+  "Desxifrant trànsit...",
+  "",
+  "⚠ ALERTA: Accés simulat detectat ⚠",
+  "",
+  "Carregant mòdul de visualització...",
+  "",
+  "✔ Procés completat correctament",
+  "",
+  "😂 TRANQUIL·LA / TRANQUIL:",
+  "AIXÒ ÉS NOMÉS UNA BROMA 😄",
+  "",
+  "No s'ha accedit a cap dada real.",
+  "Cap sistema ha estat compromès.",
+  "",
+  "Tanca la pestanya i riu-te'n 😉"
+];
+
+let index = 0;
+const terminal = document.getElementById("terminal");
+
+function typeLine() {
+  if (index < lines.length) {
+    terminal.innerHTML += lines[index] + "\n";
+    index++;
+    setTimeout(typeLine, 400);
+  } else {
+    terminal.innerHTML += "\n<span class='cursor'></span>";
+  }
+}
+
+typeLine();
+</script>
+
+</body>
+</html>
